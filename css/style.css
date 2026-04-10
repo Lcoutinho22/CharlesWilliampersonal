@@ -66,15 +66,12 @@ body.light-theme {
   background-image: radial-gradient(circle at center, #ffffff 0%, #e0e0e0 100%);
 }
 
-/* --- CARD PRINCIPAL DEPRECATED (AGORA TELA CHEIA) --- */
-.glass-card {
+/* --- CONTAINER PRINCIPAL --- */
+.main-container {
   width: 100%;
-  max-width: 600px; /* Mais espaço pra respirar num tablet/web */
+  max-width: 600px;
   position: relative;
-  background: transparent; /* Removido fundo pra dar respiro */
-  border: none;
-  box-shadow: none;
-  padding: 60px 20px 20px 20px;
+  padding: 30px 0 20px 0;
   text-align: center;
   z-index: 1;
   margin: 0 auto;
@@ -403,7 +400,7 @@ h2 {
   display: flex;
   gap: 15px;
   overflow-x: auto;
-  padding: 15px 10px 20px 10px;
+  padding: 10px 5px 20px 5px;
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
 }
@@ -412,31 +409,56 @@ h2 {
 }
 
 .result-card {
-  min-width: 260px;
+  min-width: 320px;
+  width: 320px;
   background: var(--btn-bg);
   border: var(--border-style);
   border-radius: 15px;
-  padding: 10px;
+  padding: 0;
   flex-shrink: 0;
   scroll-snap-align: center;
+  overflow: hidden;
 }
 .comparison-box {
   display: flex;
-  gap: 5px;
-  height: 180px;
-  margin-bottom: 10px;
-  border-radius: 10px;
+  gap: 0;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  margin-bottom: 0px;
+  border-radius: 0;
   overflow: hidden;
   position: relative;
+  background: var(--input-bg);
 }
 .comparison-box.single-image img {
   width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .comparison-box img {
   width: 50%;
   height: 100%;
   object-fit: cover;
   transition: 0.3s;
+}
+.comparison-carousel {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.comparison-carousel::-webkit-scrollbar {
+  display: none;
+}
+.comparison-carousel img {
+  width: 100% !important;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  scroll-snap-align: center;
 }
 .tag-overlay {
   position: absolute;
@@ -460,7 +482,7 @@ h2 {
 
 .result-info {
   text-align: left;
-  padding: 0 5px;
+  padding: 15px; /* Adicionado padding para o texto não colar na borda */
 }
 .result-name {
   font-weight: 700;
@@ -837,9 +859,8 @@ details.faq-item[open] .faq-question i {
   body {
     padding: 0;
   }
-  .glass-card {
-    padding: 60px 15px 20px 15px;
-    border-radius: 0;
+  .main-container {
+    padding: 30px 15px 20px 15px;
   }
   h1 {
     font-size: 1.6rem;
@@ -857,6 +878,14 @@ details.faq-item[open] .faq-question i {
   .form-row-mobile {
     grid-template-columns: 1fr; /* Força sempre ficar um em cima do outro no mobile */
     gap: 0;
+  }
+  .plan-card {
+    min-width: 85vw;
+    padding: 20px 15px;
+  }
+  .result-card {
+    min-width: 85vw;
+    width: 85vw;
   }
 }
 
