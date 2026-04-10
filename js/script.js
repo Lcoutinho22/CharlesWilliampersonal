@@ -59,7 +59,19 @@ function toggleTheme() {
                 msg += `%0A*Observação:* ${obs}`;
             }
 
-            window.open(`https://wa.me/5551999999999?text=${msg}`, '_blank');
+            window.open(`https://wa.me/559892334851?text=${msg}`, '_blank');
+        }
+
+        function selectPlan(planValue) {
+            const serviceSelect = document.getElementById('serviceSelect');
+            if (serviceSelect) {
+                serviceSelect.value = planValue;
+                // Scroll to the schedule form section
+                const target = document.getElementById('agendamento-title');
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
         }
 
         function scrollTrack(elementId, dir) {
